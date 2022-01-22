@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1254\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset162 Calibri;}{\f1\fnil\fcharset238 Calibri;}{\f2\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red155\green0\blue211;\red0\green128\blue0;\red255\green0\blue0;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang1055 Docker file olu\f1\'ba\f0 turmak i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lan komutlar\f1\u305?\f0 n a\f2\lang1033\'e7\f1\lang1055\u305?\f0 klamalar\f1\u305?\f0 :\line\line\cf1\b\fs32 FROM\cf0\fs22\par
+\b0 Docker file i\f2\lang1033\'e7\f0\lang1055 erisinde ilk s\f1\u305?\f0 rada yaz\f1\u305?\f0 l\f1\u305?\f0 r.\b\line\b0 Yenu olu\f1\'ba\f0 turulacak image dosyas\f1\u305?\f0  hangi imaj dosyas\f1\u305?\f0  \f2\lang1033\'fc\f0\lang1055 zerine in\f1\'ba\f0 a edilecek\par
+\b example: \cf2\b0 FROM \cf0 image_name\line\b example: \cf2\b0 FROM \cf0 python:2.7\par
+\cf1\b\fs32 RUN\cf0\b0\fs22\par
+Image i\f2\lang1033\'e7\f0\lang1055 erisinde komut \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 rmak i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lmaktad\f1\u305?\f0 r.\line Elde edilen son image g\f2\lang1033\'f6\f0\lang1055 r\f2\lang1033\'fc\f0\lang1055 nt\f2\lang1033\'fc\f0\lang1055 s\f2\lang1033\'fc\f0\lang1055 yle sonraki sat\f1\u305?\f0 ra ge\f2\lang1033\'e7\f0\lang1055 ilecektir.\par
+\b example: \cf2\b0 RUN \cf0 command\b\line example: \cf2\b0 RUN \cf0 mkdir -p/app\line\b example: \cf2\b0 RUN \cf0 ["sudo", "-u", "ali", "veli"]\par
+\b Note: \cf3\b0 Docker file i\f2\lang1033\'e7\f0\lang1055 erisindeki katman say\f1\u305?\f0 s\f1\u305?\f0  ne kadar fazla olur image boyutu okadar b\f2\lang1033\'fc\f0\lang1055 y\f2\lang1033\'fc\f0\lang1055 mektedir. Bu y\f2\lang1033\'fc\f0\lang1055 zden birden fazla paket y\f2\lang1033\'fc\f0\lang1055 klemesi yap\f1\u305?\f0 lacaksa ayn\f1\u305?\f0  sat\f1\u305?\f0 r i\f2\lang1033\'e7\f0\lang1055 erisinde && ile yaz\f1\u305?\f0 lmal\f1\u305?\f0 d\f1\u305?\f0 r.\par
+\cf1\b\fs32 ADD\cf0\b0\fs22\par
+Container i\f2\lang1033\'e7\f0\lang1055 erisinde lokal bilgisisayardan veya internet \f2\lang1033\'fc\f0\lang1055 zerinden dosya kopyalamas\f1\u305?\f0  yapmak i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lmaktad\f1\u305?\f0 r.\par
+\b example: \cf2\b0 ADD \cf0 source_file container_target_file\line\b example: \cf2\b0 ADD \cf0 ["./webfile/", "/var/html/try"]\line\b example: \cf2\b0 ADD \cf0 info.txt data/proje/\par
+\cf1\b\fs32 COPY\cf0\b0\fs22\par
+Container i\f2\lang1033\'e7\f0\lang1055 erisine lokal bilgisayardan dosya kopyalamas\f1\u305?\f0  yapmak i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 l\f1\u305?\f0 r.\par
+\b example: \cf2\b0 COPY \cf0 source_file container_target_file\line\b example: \cf2\b0 COPY \cf0 pack* /mydir/project\par
+\cf1\b\fs32 WORKDIR\cf0\b0\fs22\par
+Container i\f2\lang1033\'e7\f0\lang1055 erisinde \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 ma dizini belirtmek i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lmaktad\f1\u305?\f0 r. T\f2\lang1033\'fc\f0\lang1055 m i\f1\'ba\f0 lemler bu belirlenen path \f2\lang1033\'fc\f0\lang1055 zerinde ger\f2\lang1033\'e7\f0\lang1055 ekle\f1\'ba\f0 mektedir.\f2\lang1033\par
+\b\f0\lang1055 example: \cf2\b0 WORKDIR \cf0 path\line\b example: \cf2\b0 WORKDIR \cf0 /app\par
+\cf1\b\fs32 VOLUME\cf0\b0\fs22\par
+Container i\f2\lang1033\'e7\f0\lang1055 erisine kal\f1\u305?\f0 c\f1\u305?\f0  depolama alan\f1\u305?\f0  eklemek i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lmaktad\f1\u305?\f0 r. Container'\f1\u305?\f0 n i\f1\'ba\f0 lemi bitse bile verdi\f1\u287?\f0 imiz path host bilgisayar\f1\u305?\f0 m\f1\u305?\f0 zda saklanmaya devam eder.\par
+\b example: \cf2\b0 VOLUME \cf0 ["/var/log/"]\line\b example: \cf2\b0 VOLUME \cf0 /storage\par
+\cf1\b\fs32 EXPOSE\cf0\b0\fs22\par
+Container belirtilen port \f2\lang1033\'fc\f0\lang1055 zerinden talepleri dinler. Containerlar verilen portlarla kendi aralar\f1\u305?\f0 nda veya d\f1\u305?\'ba\f0  d\f2\lang1033\'fc\f0\lang1055 nyayla ileti\f1\'ba\f0 im kurabilirler.\par
+\b example: \cf2\b0 EXPOSE \cf0 8080\line\b example: \cf2\b0 EXPOSE \cf0 [<port>/<protocol>...]\line\b example: \cf2\b0 EXPOSE \cf0 80/udp\par
+\cf1\b\fs32 LABEL\cf0\b0\fs22\par
+Image hakk\f1\u305?\f0 nda bilgi verilmek i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lmaktad\f1\u305?\f0 r.\par
+\b example: \cf2\b0 LABE \cf0 Lversion=<key>=<value>\line\b example: \cf2\b0 LABEL \cf0 Tolgahan \f2\lang1033\'c7\f0\lang1055 elik<tolcelik11@gmail.com>\line\b example: \cf2\b0 LABEL \cf0 version="1.0"\par
+\cf1\b\fs32 USER\cf0\b0\fs22\par
+Hangi kullan\f1\u305?\f0 c\f1\u305?\f0  \f2\lang1033\'fc\f0\lang1055 zerinden i\f1\'ba\f0 lem yap\f1\u305?\f0 laca\f1\u287?\u305?\f0 n\f1\u305?\f0  belirtmek i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 l\f1\u305?\f0 r.\par
+\b example: \cf2\b0 USER \cf0 <user>[:group]\line\b example: \cf2\b0 USER \cf0 ali[:sotfware]\line\b example: \cf2\b0 USER \cf0 maksum\par
+\cf1\b\fs32 ENV\cf0\b0\fs22\par
+Container i\f2\lang1033\'e7\f0\lang1055 in ortam de\f1\u287?\f0 i\f1\'ba\f0 kenleri tan\f1\u305?\f0 mlanmaktad\f1\u305?\f0 r.\par
+\b example: \cf2\b0 ENV \cf0 <key> <value>\line\b example: \cf2\b0 ENV \cf0 PORT 8080\line\b example: \cf2\b0 ENV \cf0 SECRET_KEY vingardium_leviyosa\par
+\cf1\b\fs32 CMD\cf0\b0\fs22\par
+Container ba\f1\'ba\f0 larken \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 rmak istedi\f1\u287?\f0 iniz komut i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lmaktad\f1\u305?\f0 r. Herhangi bir projeyi \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 rmak i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 l\f1\u305?\f0 r. CMD dockerfile i\f2\lang1033\'e7\f0\lang1055 erisinde 1 tane olmal\f1\u305?\f0 d\f1\u305?\f0 r.\par
+\b example: \cf2\b0 CMD \cf0 command\line\b example: \cf2\b0 CMD \cf0 ["node", "server.js"]\line\b example: \cf2\b0 CMD \cf0 python demo.py\par
+\cf1\b\fs32 ENTRYPOINT\cf0\b0\fs22\par
+Container ba\f1\'ba\f0 larken varsay\f1\u305?\f0 lan parametleri tan\f1\u305?\f0 mlamak ve \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 rmak i\f2\lang1033\'e7\f0\lang1055 in kullan\f1\u305?\f0 lmaktad\f1\u305?\f0 r. CMD komutuna g\f2\lang1033\'f6\f0\lang1055 re daha esnek bir kullan\f1\u305?\f0 m\f1\u305?\f0  vard\f1\u305?\f0 r.\par
+\b example: \cf2\b0 ENTRYPOINT \cf0 <path>\line\b example: \cf2\b0 ENTRYPOINT \cf0 ["echo", "Hello World!"]\line\b example: \cf2\b0 ENTRYPOINT \cf0 ["node", "server.js"]\par
+\par
+\b NOTE: \cf3\b0 ENTRYPOINT ile parametre sabitlemesi yapt\f1\u305?\f0 ktan sonra CMD komutuyla bu parametleri \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 rmakta g\f2\lang1033\'fc\f0\lang1055 zel bir se\f2\lang1033\'e7\f0\lang1055 enektir.\cf0\par
+\b example: \cf2\b0 ENTRYPOINT \cf0 ["node"]\line                   \cf2 CMD \cf0 ["server.js"]\par
+\b example: \cf2\b0 ENTRYPOINT \cf0 ["npm"]\line                   \cf2 CMD \cf0 ["start"]\par
+\b example: \cf2\b0 ENTRYPOINT \cf0 ["ping"]\line                   \cf2 CMD \cf0 ["8.8.8.8", "-c", "3]\par
+\par
+Docker file ve Docker compose dosyalar\f1\u305?\f0  \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 r\f1\u305?\f0 ld\f1\u305?\u287?\u305?\f0 nda yeni bir image \f2\lang1033\'fc\f0\lang1055 retilir, bu imagedan yeni container olu\f1\'ba\f0 turarak container i\f2\lang1033\'e7\f0\lang1055 erisinde \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 r\f1\u305?\f0 r duruma gelece\f1\u287?\f0 iniz. K\f1\u305?\f0 sacas\f1\u305?\f0  base bir image yap\f1\u305?\f0 s\f1\u305?\f0  \f2\lang1033\'fc\f0\lang1055 zerine kendi eklemelerimizi yap\f1\u305?\f0 p bunu bir container haline getiriyoruz.\par
+\par
+\cf1\b\fs48 MULTI STAGE DOCKER FILE\cf0\b0\fs22\par
+Docker container boyutlar\f1\u305?\f0 n\f1\u305?\f0  d\f2\lang1033\'fc\f1\lang1055\'ba\f2\lang1033\'fc\f0\lang1055 rmek ve daha y\f2\lang1033\'fc\f0\lang1055 ksek kullan\f1\u305?\f0 labilirli\f1\u287?\f0 i olan containerlar \f2\lang1033\'fc\f0\lang1055 retmek i\f2\lang1033\'e7\f0\lang1055 in \f2\lang1033\'e7\f0\lang1055 ok a\f1\'ba\f0 amal\f1\u305?\f0  image i\f1\'ba\f0 lemleri uygulan\f1\u305?\f0 r.\par
+\b\fs28 -> C \f2\lang1033\'d6\f0\lang1055 RNE\f1\u286?\u304?\f0  <-\b0\fs22\par
+\b 1. A\f1\'ba\f0 ama\b0\par
+FROM alpine:3.7 as newImage -> Burada as ile isim vermezsek default: 0 'd\f1\u305?\f0 r\line RUN apk update && apk add --update alpine-sdk\line RUN mkdir/app\line WORKDIR /app\line COPY . /app\line RUN mkdir bin\line RUN gcc -Wall hello.c -o bin/hello\line\par
+\b 2. A\f1\'ba\f0 ama\b0\par
+FROM scratch\line COPY --from=newImage /app/bin/hello /app/hello\line CMD /app/hello\par
+\par
+1. A\f1\'ba\f0 amada elde edilen \f2\lang1033\'e7\f1\lang1055\u305?\f0 kt\f1\u305?\f0 y\f1\u305?\f0  farkl\f1\u305?\f0  image \f2\lang1033\'fc\f0\lang1055 zerinde \f2\lang1033\'e7\f0\lang1055 al\f1\u305?\'ba\f0 t\f1\u305?\f0 r\f1\u305?\f0 rak fazlal\f1\u305?\f0 klardan kurtularak 2. a\f1\'ba\f0 amada daha k\f2\lang1033\'fc\'e7\'fc\f0\lang1055 k bir container elde etmi\f1\'ba\f0  olduk.\par
+\par
+\b\fs28 -> Python \f2\lang1033\'d6\f0\lang1055 rne\f1\u287?\f0 i <-\b0\fs22\par
+\b 1. A\f1\'ba\f0 ama\b0\par
+FROM python:3.9.6-alpine3.14 as base\line FROM base as builder\line RUN mkdir/install\line WORKDIR /install\line COPY requirements.txt /requirements.txt\line RUN pip install --install-option="--prefix=/install" -r /requirements.txt\par
+\b 2. A\f1\'ba\f0 ama\b0\par
+FROM base\line COPY --from=builder /install /usr/local\line COPY src /app\line WORKDIR /app\line CMD ["gunicorn", "-w 4", "main:app"]\line\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\cf3\f2\lang31\par
+}
+ 

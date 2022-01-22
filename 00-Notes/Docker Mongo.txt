@@ -1,0 +1,14 @@
+docker pull mongo
+docker pull mongoclient/mongoclient
+
+docker run --name mongo -p 27017:27017 mongo
+
+// Eğer stream yapıları kullanarak test yapıcalaksa bunlarla oluşturulmalıdır.
+// Replica setler olmadan mongoda stream kullanılamaz!!!
+
+docker run -d -p 27017:27017 --name mongo --replSet=test
+sleep 5
+docker exec -it mongo mongo --quiet --eval "rs.initiate()"
+docker exec -it mongo mongo --quiet
+
+docker run --name mongo-client -d -p 3000:3000 mongoclient/mongoclient

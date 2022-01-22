@@ -1,0 +1,114 @@
+{\rtf1\ansi\ansicpg1254\deff0\nouicompat\deflang1055{\fonttbl{\f0\fnil\fcharset162 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset238 Calibri;}}
+{\colortbl ;\red255\green0\blue0;\red0\green77\blue187;\red192\green192\blue192;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\ri70\sa200\sl276\slmult1\tx8520\b\f0\fs22 T\f1\lang1033\'fc\f0\lang1055 m containerlar\f2\u305?\f0  listele\b0\line docker container ls -a \b ->(--all)\b0\par
+\b\f1\lang1033\'c7\f0\lang1055 al\f2\u305?\'ba\f0 an containerlar\f2\u305?\f0  listele\b0\line docker container ls \b -> (list, ls ps)\par
+Containerlar\f2\u305?\f0 n yaln\f2\u305?\f0 zca ID'lerini listele\line\b0 docker container ls -a -q \b ->(--quiet)\par
+\par
+Container Ba\f2\'ba\f0 lat / Duraklat / Sil\b0\line docker container start name\par
+docker container stop name\f1\lang31\par
+\f0\lang1055 docker container restart name\f1\lang31\par
+\f0\lang1055 docker container pause name\par
+docker container unpause name\par
+docker container rm name\par
+docker container rm -f name  \b\i -> Silmeye zorlar\par
+\b0\i0 docker container rm $(docker container ls -a -q) \b ->T\f1\lang1033\'fc\f0\lang1055 m containerlar\f2\u305?\f0  silmek i\f1\lang1033\'e7\f0\lang1055 in i\f1\lang1033\'e7\f0\lang1055  i\f1\lang1033\'e7\f0\lang1055 e query. \par
+\b0 docker container prune \b -> Durmu\f2\'ba\f0  t\f1\lang1033\'fc\f0\lang1055 m containerlar\f2\u305?\f0  sil\i\par
+\par
+\i0 Container yeniden isimlendir\par
+\b0 docker container rename old_name new_name\par
+\par
+\b Container olu\f2\'ba\f0 tur ve \f1\lang1033\'e7\f2\lang1055\u305?\f0 k\f2\u305?\'ba\f0  yap\f2\u305?\f0 ld\f2\u305?\u287?\u305?\f0 nda container otomatik sil\par
+\b0 docket container run --rm -it python:3 \b ->Olu\f2\'ba\f0 turulup cmd sonland\f2\u305?\f0 r\f2\u305?\f0 ld\f2\u305?\f0 ktan sonra container silinir.\par
+\par
+Container olu\f2\'ba\f0 turururken lokalden bir klas\f1\lang1033\'f6\f0\lang1055 re eri\f2\'ba\f0 imine izin ver\par
+\b0 docker container run -v local_file_path:container_file_path image_name\par
+\b -v -> --volume\par
+\par
+Container olu\f2\'ba\f0 tururken \f1\lang1033\'e7\f0\lang1055 al\f2\u305?\'ba\f0 ma dizini tan\f2\u305?\f0 mlama\par
+\b0 docker container run --workdir container_path image_name\b\f1\lang31\par
+\b0\par
+\b\f0\lang1055 Containera web \f1\lang1033\'fc\f0\lang1055 zerinden eri\f2\'ba\f0 im sa\f2\u287?\f0 lamak\par
+\b0 docker container run -p 8080:80 -d nginx \b ->\f2\u304?\f0 lk 8080 k\f2\u305?\f0 sm\f2\u305?\f0  bizim bilgisayar\f2\u305?\f0 m\f2\u305?\f0 z\f2\u305?\f0 n port \f1\lang1033\'e7\f2\lang1055\u305?\f0 k\f2\u305?\f0 s\f2\u305?\f0 n\f2\u305?\f0  g\f1\lang1033\'f6\f0\lang1055 stermektedir. \f2\u304?\f0 kincisi containerin dinleyece\f2\u287?\f0 i port adresidir.\par
+-P -> random port\line -p -> --port (Servisin \f1\lang1033\'e7\f0\lang1055 al\f2\u305?\'ba\f0 aca\f2\u287?\u305?\f0  \f1\lang1033\'e7\f2\lang1055\u305?\f0 k\f2\u305?\'ba\f0  noktas\f2\u305?\f0 )\line -d -> --detach (Container'\f2\u305?\f0 n arka planda \f1\lang1033\'e7\f0\lang1055 al\f2\u305?\'ba\f0 t\f2\u305?\f0 r)\par
+\par
+Container detaylar\f2\u305?\f0 n\f2\u305?\f0  g\f1\lang1033\'f6\f0\lang1055 rmek\par
+\b0 docker container inspect container_name\b\par
+\par
+SSH OLMADAN CONTAINER'E BA\f2\u286?\f0 LANARAK \f2\u304?\'aa\f0 LEM YAPMAK\par
+\b0 docker container run -i -t centos \par
+\b -i -> --interactive (Konteyner i\f2\'ba\f0 letim sistemi terminaline eri\f2\'ba\f0 ime izin vermek)\par
+-t -> --tty (Konteyner i\f2\'ba\f0 letim sistemi terminaline eri\f2\'ba\f0 ime izin vermek)\par
+-it -> -i -t k\f2\u305?\f0 salt\f2\u305?\f0 lm\f2\u305?\'ba\f0  halidir.\par
+\cf1 !!! IMAGE PARAMETRESINDEN SONRA YAZILAN T\f1\lang1033\'dc\f0\lang1055 M KOMUTLAR CONTA\f2\u304?\f0 NER \f2\u304?\f1\lang1033\'c7\f0\lang1055 ER\f2\u304?\f0 S\f2\u304?\f0 NDE \f1\lang1033\'c7\f0\lang1055 ALI\f2\'aa\f0 TIRILMAKTADIR. !!!\par
+\cf0\f1\lang1033\'d6\f0\lang1055 rne\f2\u287?\f0 in: \b0 docker container run -i -t centos \cf1\fs36 bash \cf0\b\fs24 ->Container i\f1\lang1033\'e7\f0\lang1055 erisindeki i\f2\'ba\f0 letim sistemi kabu\f2\u287?\f0 una ba\f2\u287?\f0 lanmak. Bash olmayanlar \cf1 sh\cf0  denenebilir. Daha sonra  terminelde \cf1 exit \cf0 yazarak kabuktan \f1\lang1033\'e7\f2\lang1055\u305?\f0 k\f2\u305?\f0 labilir.\par
+\par
+Yeni container olu\f2\'ba\f0 turmadan var olan bir container'\f2\u305?\f0 n i\f1\lang1033\'e7\f0\lang1055 ine girmek\par
+\b0 docker container exec -it container_name \cf2\b OR\cf0\b0  container_id /bin/bash\par
+\par
+\b Container i\f1\lang1033\'e7\f0\lang1055 erisine giri\f2\'ba\f0  yapmadan d\f2\u305?\'ba\f0 ar\f2\u305?\f0 dan komut \f1\lang1033\'e7\f0\lang1055 al\f2\u305?\'ba\f0 t\f2\u305?\f0 rmak\par
+\b0\fs22 docker container exec \fs24 container_name \cf2\b OR\cf0\b0  container_id mkdir try_file\par
+\fs22 docker container exec \fs24 container_name \cf2\b OR\cf0\b0  container_id yum install -y vim\par
+\par
+\b Container'a toplu paket y\f1\lang1033\'fc\f0\lang1055 klemesi yapmak\b0\par
+docker container exec -it --name container_name bash\line cd tmp/\line echo \\ "yum -y update && \\ yum install -y vim && \\ mkdir app && \\ touch app/list.txt" >> script\par
+\par
+\b Nginx container'\f2\u305?\f0  olu\f2\'ba\f0 turarak basit \f2\'ba\f0 ekide ana sayfas\f2\u305?\f0 n\f2\u305?\f0  de\f2\u287?\f0 i\f2\'ba\f0 tirmek\b0\fs22\par
+docker container run -dp 5080:80 --name webapp nginx\line docker container exec -it webapp bash\line cd /usr/share/nginx/html\line rm -rf *\line echo "Hello world! What's Up?">>index.html\par
+\par
+\b Node container'\f2\u305?\f0  olu\f2\'ba\f0 turmak ve i\f2\'ba\f0 lemler\b0\par
+docker container run -itp 3000:3000 node bash\line apt update -y && apt install -y nano\line mkdir demonodejs\line cd demonodejs\line npm init -> skip step and write yes\line npm install express --save\line nano index.js\line\line\highlight3 const express = require('express');\line const app = express();\par
+app.get('/', (req, res) => \{\line    res.send('Hello MARS!')\line\});\par
+app.listen(3000, () => \{\line    console.log('3000! Port is listening...')\line\})\par
+\highlight0\par
+\b Lokalden Container'e Container'den Locale dosya yollamak.\par
+1- docker container cp\par
+\b0 docker container cp local_file_path container:target_path \b -> local to container\b0\f1\lang1033\par
+\f0\lang1055 docker container cp container:target_path local_file_path  \b -> container to local\b0\par
+\b 2- Mount Volume\par
+\b0 docker container run --name linfile -dv C:\\Users\\tol_c\\Desktop\\Repo\\:/webFiles --workdir /webFiles nginx\par
+docker container exec -it linfile bash\par
+dir\b\par
+3- Donwload internet (\b0 wget target_file_url\b )\par
+\b0 docker container run --name filedownload -d nginx\par
+docker container exec -it filedownload bash\par
+apt update && apt install -y wget\par
+wget target_file_url\par
+ls\par
+\par
+\b Container ile --env kullan\f2\u305?\f0 m\f2\u305?\f0\par
+\b0  docker container run --name mariadb1 -dp 3306:3006 -e MYSQL_ROOT_PASSWORD='123123' mariadb\par
+ docker container run --name mariadb2 -dp 3307:3006 -e MYSQL_ROOT_PASSWORD='123123' mariadb\par
+\f1\lang31 docker container run --name mssqldb1 -dp 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD='123123' mcr.microsoft.com/mssql/server\par
+docker container run --name mssqldb\f0\lang1055 2\f1\lang31  -dp 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD='123123' mcr.microsoft.com/mssql/server\par
+\par
+\b\f0\lang1055 Container detaylar\f2\u305?\f0 n\f2\u305?\f0  incelemek\b0\par
+\f1\lang31 docker container run --name mysqldb -dp 3306:3306 -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql\par
+\f0\lang1055 docker container inspect mysqldb \b -> T\f1\lang1033\'fc\f0\lang1055 m detaylar\par
+\b0 docker container inspect mysqldb | grep IPAddress\b  -> Belirtilen detaylar\b0\par
+docker container inspect mysqldb -f \{\{.NetworkSettings.IPAddress\}\} mysqldb\par
+docker container logs mysqldb \b -> Container loglar\f2\u305?\par
+\b0 docker container top mysqldb\f0  \b -> Container i\f1\lang1033\'e7\f0\lang1055 erisindeki processler\b0\par
+docker container stats --help\par
+docker container stats -a \b -> Container donan\f2\u305?\f0 m detaylar\f2\u305?\par
+\par
+\f0 Container i\f1\lang1033\'e7\f0\lang1055 erisinde node.js backendi \f1\lang1033\'e7\f0\lang1055 al\f2\u305?\'ba\f0 t\f2\u305?\f0 rma\b0\par
+docker container run -it --name nodejs -d -p 1111:8080 --workdir /nodejs --volume local_project_path node:lastest node server.js \b -> projeyi container \f1\lang1033\'fc\f0\lang1055 st\f1\lang1033\'fc\f0\lang1055 ne atmak.\b0\par
+docker container exec -it nodejs /bin/bash\par
+ls\par
+\par
+\b Docker y\f1\lang1033\'f6\f0\lang1055 netim ara\f1\lang1033\'e7\f0\lang1055 lar\f2\u305?\b0\f0\par
+KITEMATIC -> {{\field{\*\fldinst{HYPERLINK https://kitematic.com/ }}{\fldrslt{https://kitematic.com/\ul0\cf0}}}}\f0\fs22\par
+PORTAINER.IO -> {{\field{\*\fldinst{HYPERLINK https://www.portainer.io/ }}{\fldrslt{https://www.portainer.io/\ul0\cf0}}}}\f0\fs22\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\f1\lang31\par
+}
+ 

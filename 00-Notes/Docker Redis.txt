@@ -1,0 +1,9 @@
+docker pull redis
+docker pull rediscommander/redis-commander
+
+docker run --name redis -p 6379:6379 -d redis
+
+// Redis cli run
+docker exec -it <Redis container name> redis-cli
+
+docker run --name redis-commander -d -e REDIS_HOSTS=192.168.1.178 -e REDIS_PORT=6379 -p 8081:8081 rediscommander/redis-commander:latest
